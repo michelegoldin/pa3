@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(tidyverse)\n\nggplot(data=<DATAFRAME>, aes(<VARIABLES HERE>))\n\nstr(mtcars)\n\nggplot(data=mtcars, aes(x = hp, y = mpg)) + \n  geom_point()\n\nggplot(data=mtcars, aes(x = hp, y = mpg, shape = as.factor(vs))) + \n  geom_point()\n\nggplot(mtcars, aes(x = as.factor(cyl), y = mpg)) +\n  geom_boxplot() +\n  labs(x=\"Cylinders\", y = \"MPG\", title = \"My boxplot\")\n      caption = \"these are boxplots\"\n      \nggplot(mtcars, aes(x = as.factor(vs), y = mpg)) +\n  geom_boxplot() + \n  facet_grid(am~cyl)\n\nggplot(mtcars, aes(x = as.factor(cyl), y = mpg)) +\n  stat_summary(fun.data = mean_cl_boot, geom = 'errorbar', width = 0.2) +\n  stat_summary(fun.y = mean, geom = 'point', size = 4, color = 'green')\n  theme_bw()\n  \nggplot(data=mtcars, aes(x = hp, y = mpg)) + \n    geom_point() +\n  geom_smooth(method=lm)\n\n  ",
+    "created" : 1518578044882.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "294437769",
+    "id" : "CA907217",
+    "lastKnownWriteTime" : 1516728964,
+    "last_content_update" : 1516728964,
+    "path" : "~/Desktop/my_fakeqp/scripts/test.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
