@@ -1,0 +1,55 @@
+---
+title: "index.Rmd"
+author: "Michele Goldin"
+date: "2/13/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(languageR)
+library(tidyverse)
+
+```
+
+#1. Tidy data
+
+```{r}
+
+#selected only 2 variables from 28 and created a new data frame
+newdf <- lexdec%>%
+  select(., RT = RT, SubjectFrequency = SubjFreq)
+```
+
+#2. Plot data
+
+```{r}
+
+#fitted a line through the data
+newdf%>%
+  ggplot(., aes(x = RT, y = SubjectFrequency)) +
+    geom_point() +
+    geom_smooth(method= 'lm')
+```
+
+#3. Get descriptives
+
+```{r}
+mean(newdf$RT)
+sd(newdf$RT)
+
+mean(newdf$SubjectFrequency)
+sd(newdf$SubjectFrequency)
+
+```
+
+```{r}
+df_summary <- lm(SubjectFrequency ~ RT, data = newdf)
+summary(df_summary)
+
+```
+
+#4. Description
+
+The mean RT is 6.39, SD = 0.24. The mean Subject Frequency is 3.91, SD = 1.01. This plot shows us reading times as a function of subject frequency. As reading times get longer, subject frequency decreases and we see a negative correlation. (B = -0.95, SE = .10, t value = -9.45, p<.02).
